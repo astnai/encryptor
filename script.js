@@ -4,6 +4,10 @@ const textareaEncriptada = document.getElementById('textarea-encriptada');
 // Secret key for AES (must be kept secure)
 const secretKey = crypto.getRandomValues(new Uint8Array(16)); // Generate a random 128-bit secret key
 
+// Display secret key in the page
+const secretKeyDisplay = document.getElementById('secret-key-display');
+secretKeyDisplay.textContent = `SECRET_KEY: ${secretKey.join(', ')}`;
+
 // Function to encrypt text using AES
 async function encrypt(text, key) {
     const encoder = new TextEncoder();
